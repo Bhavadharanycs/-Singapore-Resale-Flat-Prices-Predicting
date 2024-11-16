@@ -44,10 +44,10 @@ if uploaded_file is not None:
     resale_data_cleaned = resale_data.drop(columns=columns_to_drop)
     
      # One-hot encode categorical variables
- categorical_columns = ['town', 'flat_type', 'flat_model']
- encoder = OneHotEncoder(drop='first', sparse_output=False)
- encoded_features = encoder.fit_transform(resale_data_cleaned[categorical_columns])
- encoded_df = pd.DataFrame(encoded_features, columns=encoder.get_feature_names_out(categorical_columns))
+    categorical_columns = ['town', 'flat_type', 'flat_model']
+    encoder = OneHotEncoder(drop='first', sparse_output=False)
+    encoded_features = encoder.fit_transform(resale_data_cleaned[categorical_columns])
+    encoded_df = pd.DataFrame(encoded_features, columns=encoder.get_feature_names_out(categorical_columns))
 
 
     
