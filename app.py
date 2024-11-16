@@ -11,7 +11,7 @@ def add_bg_image():
     """
     <style>
     .stApp {
-        background: url("https://png.pngtree.com/thumb_back/fh260/background/20190220/ourmid/pngtree-creative-synthesis-city-comic-real-estate-image_8675.jpg") no-repeat center fixed;
+        background: url("https://www.shutterstock.com/image-vector/abstract-wireframe-city-background-perspective-260nw-1121001956.jpg") no-repeat center fixed;
         background-size: cover;
     }
     </style>
