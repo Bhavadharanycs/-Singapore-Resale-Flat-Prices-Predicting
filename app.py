@@ -6,6 +6,15 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import numpy as np
 
+page_bg_img = '''
+<style>
+.stApp {
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fhouse-for-sale&psig=AOvVaw3JpN6b1Oso6DXpPqkliJIU&ust=1731822488797000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOC92N-T4IkDFQAAAAAdAAAAABAR");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+</style>
 # Streamlit app title
 st.title("Singapore Flat Resale Price Predictor")
 
