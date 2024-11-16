@@ -11,7 +11,7 @@ def add_bg_image():
     """
     <style>
     .stApp {
-        background: url("https://png.pngtree.com/thumb_back/fh260/background/20190221/ourmid/pngtree-high-end-atmosphere-black-gold-real-estate-commercial-real-estate-advertising-image_21500.jpg") no-repeat center fixed;
+        background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Ss6ZQT_y45IDeG2_M1WtcEgKdcgsAx52_sD-QiLx_mKc3RjOUlBOcOL2YUmO4yZPqGI&usqp=CAU") no-repeat center fixed;
         background-size: cover;
     }
     </style>
