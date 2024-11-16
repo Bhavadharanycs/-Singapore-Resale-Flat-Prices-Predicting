@@ -1,33 +1,33 @@
-import streamlit as st
+# Preprocessing the dataset
 import pandas as pd
-import numpy as np
-import pickle
 
-# Load the trained model
-with open('resale_price_model.pkl', 'rb') as file:
-    model = pickle.load(file)
+# Load the dataset
+file_path = 'resale data.csv'
+df = pd.read_csv(file_path)
 
-# Streamlit application
-st.title("Singapore Flat Resale Price Prediction")
-st.write("Estimate the resale value of a flat based on historical data.")
+# Convert 'remaining_lease' to total months
+def parse_remaining_lease(lease_str):
+    try:
+        years, months = lease_str.split('years')
+        months = months.strip().split(' ')[0] if 'month' in months else 0
+        return int(years.strip()) * 12 + int(months)
+    except:
+        return None
 
-# Input fields
-town = st.selectbox("Town", ["ANG MO KIO", "BEDOK", "BISHAN", ...])  # Add all town options
-flat_type = st.selectbox("Flat Type", ["2 ROOM", "3 ROOM", "4 ROOM", "5 ROOM", "EXECUTIVE"])
-storey_range = st.selectbox("Storey Range", ["01 TO 03", "04 TO 06", ...])  # Complete as needed
-floor_area_sqm = st.number_input("Floor Area (sqm)", min_value=20, max_value=200, value=60)
-lease_commence_date = st.slider("Lease Commence Date", 1960, 2024, 1990)
+df['remaining_lease_months'] = df['remaining_lease'].apply(parse_remaining_lease)
 
-# Feature engineering
-lease_age = 2024 - lease_commence_date
+# Calculate lease age
+current_year = 2024
+df['lease_age'] = current_year - df['lease_commence_date']
 
-# Predict button
-if st.button("Predict Resale Price"):
-    # Prepare input data
-    input_data = pd.DataFrame([[town, flat_type, storey_range, floor_area_sqm, lease_age]],
-                              columns=['town', 'flat_type', 'storey_range', 'floor_area_sqm', 'lease_age'])
-    input_data = pd.get_dummies(input_data).reindex(columns=X.columns, fill_value=0)  # Ensure columns match
-    
-    # Predict
-    prediction = model.predict(input_data)[0]
-    st.write(f"Estimated Resale Price: ${prediction:,.2f}")
+# Drop unnecessary columns
+df = df.drop(['month', 'block', 'street_name', 'remaining_lease'], axis=1)
+
+# Encode categorical variables
+df = pd.get_dummies(df, columns=['town', 'flat_type', 'storey_range', 'flat_model'], drop_first=True)
+
+# Handle missing values
+df = df.dropna()
+
+# Save cleaned data
+df.to_csv('/mnt/data/cleaned_resale_data.csv', index=False)
