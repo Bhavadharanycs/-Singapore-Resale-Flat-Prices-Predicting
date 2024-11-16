@@ -11,7 +11,7 @@ def add_bg_image():
     """
     <style>
     .stApp {
-        background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Ss6ZQT_y45IDeG2_M1WtcEgKdcgsAx52_sD-QiLx_mKc3RjOUlBOcOL2YUmO4yZPqGI&usqp=CAU") no-repeat center fixed;
+        background: url("https://png.pngtree.com/thumb_back/fh260/background/20190220/ourmid/pngtree-creative-synthesis-city-comic-real-estate-image_8675.jpg") no-repeat center fixed;
         background-size: cover;
     }
     </style>
@@ -22,7 +22,7 @@ def add_bg_image():
 # Call the function to add the background image
 add_bg_image()
 # Streamlit app title
-st.title("Singapore Flat Resale Price Predictor")
+st.markdown('<h1 style="font-family:sans-serif; color: black; font-weight: bold;">Singapore Flat Resale Price Predictor</h1>', unsafe_allow_html=True)
 
 # Upload the dataset
 st.header("Upload the Resale Flat Data CSV")
