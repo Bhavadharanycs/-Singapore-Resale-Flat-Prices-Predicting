@@ -8,18 +8,16 @@ import numpy as np
 
 def add_bg_image():
     st.markdown(
-        """
-        <style>
-        .stApp {
-            background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fhouse-for-sale&psig=AOvVaw3JpN6b1Oso6DXpPqkliJIU&ust=1731822488797000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOC92N-T4IkDFQAAAAAdAAAAABAR');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    """
+    <style>
+    .stApp {
+        background: url("https://png.pngtree.com/thumb_back/fh260/background/20190221/ourmid/pngtree-high-end-atmosphere-black-gold-real-estate-commercial-real-estate-advertising-image_21500.jpg") no-repeat center fixed;
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Call the function to add the background image
 add_bg_image()
