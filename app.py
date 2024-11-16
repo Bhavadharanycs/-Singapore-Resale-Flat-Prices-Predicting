@@ -11,7 +11,7 @@ def add_bg_image():
     """
     <style>
     .stApp {
-        background: url("https://img.freepik.com/premium-vector/city-skyscraper-view-cityscape-background-skyline-silhouette-with-copy-space_48369-11705.jpg?semt=ais_hybrid") no-repeat center fixed;
+        background: url("https://img.freepik.com/premium-photo/abstract-city-building-skyline-metropolitan-area-contemporary-color-style-futuristic-effects-real-estate-property-development-innovative-architecture-engineering-concept_31965-26878.jpg") no-repeat center fixed;
         background-size: cover;
     }
     </style>
