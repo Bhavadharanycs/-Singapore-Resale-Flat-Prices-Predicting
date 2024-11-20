@@ -131,7 +131,10 @@ if uploaded_file is not None:
     st.pyplot(fig)
 
     st.write("### Correlation Heatmap")
-    fig, ax = plt.subplots()
-    sns.heatmap(resale_data_cleaned.corr(), annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
-    st.pyplot(fig)
+    # Select only numeric columns for correlation
+    numeric_cols = resale_data_cleaned.select_dtypes(include=[np.number])
+    correlation_matrix = numeric_cols.corr()
+
+    sns.heatmap(correlation_matrix, annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
+
 
