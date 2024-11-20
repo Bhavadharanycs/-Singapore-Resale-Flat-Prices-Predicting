@@ -26,16 +26,6 @@ add_bg_image()
 # Streamlit app title
 st.markdown('<h1 style="font-family:sans-serif; color: black; font-weight: bold;">Singapore Flat Resale Price Predictor</h1>', unsafe_allow_html=True)
 
-st.write("### Distribution of Resale Prices")
-fig, ax = plt.subplots()
-sns.histplot(resale_data['resale_price'], bins=30, ax=ax)
-st.pyplot(fig)
-
-st.write("### Correlation Heatmap")
-fig, ax = plt.subplots()
-sns.heatmap(resale_data_cleaned.corr(), annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
-st.pyplot(fig)
-
 # Upload the dataset
 st.header("Upload the Resale Flat Data CSV")
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
@@ -134,3 +124,14 @@ if uploaded_file is not None:
         # Predict resale price
         predicted_price = rf_model.predict(user_data_final)
         st.success(f"The predicted resale price is: SGD {predicted_price[0]:,.2f}")
+
+    st.write("### Distribution of Resale Prices")
+    fig, ax = plt.subplots()
+    sns.histplot(resale_data['resale_price'], bins=30, ax=ax)
+    st.pyplot(fig)
+
+    st.write("### Correlation Heatmap")
+    fig, ax = plt.subplots()
+    sns.heatmap(resale_data_cleaned.corr(), annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
+    st.pyplot(fig)
+
