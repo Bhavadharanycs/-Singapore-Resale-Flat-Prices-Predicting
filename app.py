@@ -101,8 +101,8 @@ if uploaded_file is not None:
     flat_type = st.selectbox("Flat Type", encoder.categories_[1])
     flat_model = st.selectbox("Flat Model", encoder.categories_[2])
     floor_area_sqm = st.number_input("Floor Area (sqm)", min_value=10.0, step=0.5)
-    storey_range_start = st.slider("Storey Range Start", 1, 40, 1)
-    storey_range_end = st.slider("Storey Range End", 1, 40, 10)
+    storey_range = st.slider("Storey Range", 1, 40, (1, 10))  # Default range is (1, 10)
+    storey_range_start, storey_range_end = storey_range  # Unpack the selected range
     flat_age = st.number_input("Flat Age (years)", min_value=0, step=1)
     remaining_lease_months = st.number_input("Remaining Lease (months)", min_value=0, step=1)
     
