@@ -5,6 +5,8 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 def add_bg_image():
     st.markdown(
@@ -23,6 +25,16 @@ def add_bg_image():
 add_bg_image()
 # Streamlit app title
 st.markdown('<h1 style="font-family:sans-serif; color: black; font-weight: bold;">Singapore Flat Resale Price Predictor</h1>', unsafe_allow_html=True)
+
+st.write("### Distribution of Resale Prices")
+fig, ax = plt.subplots()
+sns.histplot(resale_data['resale_price'], bins=30, ax=ax)
+st.pyplot(fig)
+
+st.write("### Correlation Heatmap")
+fig, ax = plt.subplots()
+sns.heatmap(resale_data_cleaned.corr(), annot=True, fmt=".2f", cmap="coolwarm", ax=ax)
+st.pyplot(fig)
 
 # Upload the dataset
 st.header("Upload the Resale Flat Data CSV")
